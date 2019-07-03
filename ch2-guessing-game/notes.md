@@ -1,6 +1,6 @@
 # Using Standard Libraries
 
-By default, Rust brings only a few types into the scope of every program in _(https://doc.rust-lang.org/stable/std/prelude/index.html the prelude)_. If a type you want to use isn't in the prelude, you have to bring that type into scope with a `use` statement, like so:
+By default, Rust brings only a few types into the scope of every program in _[the prelude](https://doc.rust-lang.org/stable/std/prelude/index.html)_. If a type you want to use isn't in the prelude, you have to bring that type into scope with a `use` statement, like so:
 
 `use std::io;`
 
@@ -34,7 +34,7 @@ After calling `use std::io`, we have quick access to `io`'s associated functions
 
 `&` indicates that an argument is a _reference_, which allows us to give "multiple parts of our code access to one piece of data without needing to copy that data into memory multiple times." Like variables, references are immutable by default - hence `&mut guess` rather than just `&guess`.
 
-`read_line` will also return a value - in this case, an `io::Result`. Result types are _(https://doc.rust-lang.org/stable/book/ch06-00-enums.html enumerations)_, which are a type that can have a fixed set of values, called the enum's _variants_.
+`read_line` will also return a value - in this case, an `io::Result`. Result types are _[enumerations](https://doc.rust-lang.org/stable/book/ch06-00-enums.html)_, which are a type that can have a fixed set of values, called the enum's _variants_.
 
 For `Result`, the variants are `Ok` or `Err`. The `Ok` variant indicates the operation was successful, and inside `Ok` is the successfully generated value. `Err` means it failed, and contains information about how or why. In the code above, `.expect` will handle the `Err` by printing out "Failed to read line".
 
@@ -67,7 +67,7 @@ To import and use a crate, we need to edit our _Cargo.toml_ file, like so:
 rand = "0.3.14"
 ```
 
-On run of `cargo build`, cargo will fetch the latest versions of every listed dependency from the registry, which is a copy of data from (https://crates.io/ Crates.io). Crates.io is Rust's equivalent of npm.
+On run of `cargo build`, cargo will fetch the latest versions of every listed dependency from the registry, which is a copy of data from [Crates.io](https://crates.io/). Crates.io is Rust's equivalent of npm.
 
 Cargo will only use the specified versions of dependencies until indicated otherwise. Cargo will reference the `Cargo.lock` file to determine which versions of dependencies to use
 
