@@ -1,4 +1,8 @@
-# Using Standard Libraries
+# Guessing Game
+
+---
+
+## Using Standard Libraries
 
 By default, Rust brings only a few types into the scope of every program in _[the prelude](https://doc.rust-lang.org/stable/std/prelude/index.html)_. If a type you want to use isn't in the prelude, you have to bring that type into scope with a `use` statement, like so:
 
@@ -9,7 +13,7 @@ The `std::io` library provides several in/output features.
 
 ---
 
-# Intro to Variables, Associated Functions, and Expecting Errors
+## Intro to Variables, Associated Functions, and Expecting Errors
 
 Variables are declared like so:
 
@@ -40,7 +44,7 @@ For `Result`, the variants are `Ok` or `Err`. The `Ok` variant indicates the ope
 
 ---
 
-# String Placeholders
+## String Placeholders
 
 ```rust
 println!("You guessed: {}", guess);
@@ -57,7 +61,7 @@ println!("x = {} and y = {}", x, y)
 
 ---
 
-# Using Crates
+## Using Crates
 
 To import and use a crate, we need to edit our _Cargo.toml_ file, like so:
 
@@ -79,7 +83,7 @@ Which will ignore the `Cargo.lock` file and figure out all the latest versions t
 
 ---
 
-# Using rand::Rng
+## Using rand::Rng
 
 ```rust
 let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -89,7 +93,7 @@ let secret_number = rand::thread_rng().gen_range(1, 101);
 
 ---
 
-# Comparing Numbers using  std::cmp::Ordering and `match`
+## Comparing Numbers using  std::cmp::Ordering and `match`
 
 ```rust
 use std::cmp::Ordering;
@@ -109,7 +113,7 @@ A `match` expression is made up for _arms_. An arm consists of a _pattern_ and t
 
 ---
 
-# Changing Strings to Nums
+## Changing Strings to Nums
 
 ```rust
 let mut guess = String::new();
@@ -123,7 +127,7 @@ Even though we already created a variable called `guess`, Rust allows us to _sha
 
 ---
 
-# Intro to Looping
+## Intro to Looping
 
 ```rust
 loop {
@@ -136,7 +140,7 @@ loop {
 
 ---
 
-# Handling Invalid Input
+## Handling Invalid Input
 
 ```rust
 let guess: u32 = match guess.trim().parse() {

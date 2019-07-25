@@ -25,7 +25,7 @@ To verify Cargo installation and version, run:
 
 ---
 
-# Anatomy of a Rust Program
+## Anatomy of a Rust Program
 
 ```rust
 fn main() {
@@ -42,7 +42,7 @@ fn main() {
 
 ---
 
-# Compiling and Running
+## Compiling and Running
 
 > Before running a Rust program, you must compile it using the Rust compiler by entering the rustc command and passing it the name of your source file, like this:
 
@@ -54,7 +54,7 @@ After compiling successfully, Rust outputs a binary executable.
 
 ---
 
-# Cargo Basics
+## Cargo Basics
 
 With Cargo installed, running 
 
@@ -90,13 +90,13 @@ Cargo doesn't provide a lot of value over just using `rustc` in simple projects,
 
 ---
 
-# Building for Release
+## Building for Release
 
 > When your project is finally ready for release, you can use `cargo build --release` to compile it with optimizations. This command will create an executable in `/target/release` instead of `/target/debug`. The optimizations make your Rust code run faster, but turning them on lengthens the time it takes for your program to compile. This is why there are two different profiles: one for development, when you want to rebuild quickly and often, and another for building the final program you’ll give to a user that won’t be rebuilt repeatedly and that will run as fast as possible. If you’re benchmarking your code’s running time, be sure to run `cargo build --release` and benchmark with the executable in `/target/release`.
 
 ---
 
-# SUMMARY
+## SUMMARY
 
 - Installing Rust and Cargo
 - `rustup` commands for updating, viewing a local version of the language docs, and uninstalling
