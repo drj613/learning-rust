@@ -1,9 +1,11 @@
 # Ch3 - Programming Concepts
 
-    [3.1 - Variables and Mutability](#variables-and-mutability)
-        [Variables vs Constants](#variables-vs-constants)
-        [Shadowing](#shadowing)
-    [3.2 - Data Types](#data-types)
+---
+
+[3.1 - Variables and Mutability](#variables-and-mutability)
+    [Variables vs Constants](#variables-vs-constants)
+    [Shadowing](#shadowing)
+[3.2 - Data Types](#data-types)
 
 ---
 
