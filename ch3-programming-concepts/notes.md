@@ -4,8 +4,8 @@
 
 [3.1 - Variables and Mutability](#variables-and-mutability)
 
-  -[Variables vs Constants](#variables-vs-constants)
-  -[Shadowing](#shadowing)
+- [Variables vs Constants](#variables-vs-constants)
+- [Shadowing](#shadowing)
 
 [3.2 - Data Types](#data-types)
 
@@ -17,8 +17,8 @@
   - [Characters](#the-character-type)
 
 - [Compound Types](#compound-types)
-  -[Tuples](#the-tuple-type)
-  -[Arrays](#arrays)
+  - [Tuples](#the-tuple-type)
+  - [Arrays](#arrays)
 
 [3.3 - Functions](#functions)
 
