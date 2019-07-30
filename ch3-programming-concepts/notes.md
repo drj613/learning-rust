@@ -4,24 +4,22 @@
 
 [3.1 - Variables and Mutability](#variables-and-mutability)
 
-    [Variables vs Constants](#variables-vs-constants)
-
-    [Shadowing](#shadowing)
+  [Variables vs Constants](#variables-vs-constants)
+  [Shadowing](#shadowing)
 
 [3.2 - Data Types](#data-types)
 
-    [Scalar Types](#scalar-types)
+  [Scalar Types](#scalar-types)
 
-        [Integers](#integer-types)
-        [Floats](#floating-point-types)
-        [Basic Math](#numeric-operations)
-        [Booleans](#booleans)
-        [Characters](#the-character-type)
+  [Integers](#integer-types)
+    [Floats](#floating-point-types)
+    [Basic Math](#numeric-operations)
+    [Booleans](#booleans)
+    [Characters](#the-character-type)
 
-    [Compound Types](#compound-types)
-
-        [Tuples](#the-tuple-type)
-        [Arrays](#arrays)
+  [Compound Types](#compound-types)
+    [Tuples](#the-tuple-type)
+    [Arrays](#arrays)
 
 [3.3 - Functions](#functions)
 
