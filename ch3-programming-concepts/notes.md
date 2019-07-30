@@ -22,6 +22,12 @@
 
 [3.3 - Functions](#functions)
 
+- [Function Parameters](#function-parameters)
+- [Statements vs Expressions](#statements-and-expressions)
+- [Functions with Return Values](#functions-with-return-values)
+- [Comments](#comments)
+- [Control Flow](#control-flow)
+
         
 
 ---
@@ -273,4 +279,122 @@ If you attempt to access an index that is out of bounds of the array, code will 
 
 ## Functions
 
+Declare a new function with the `fn` keyword.
 
+Rust code uses `snake_case` as the conventional style for function and variable names.
+
+Rust functions are enclosed in `{curly brackets}`
+
+Rust doesn't care where you define your functions; you can reference all functions within your code regardless of location.
+
+### Function Parameters
+
+A parameter's type _must_ be declared in a function declaration. Separate multiple parameter declarations with commas:
+
+```rust
+    fn main(){
+        my_function(5, 6.987);
+    }
+
+    fn my_function(x: i32, y: f64){
+        println!("The value of x is {}", x);
+        println!("The value of y is {}", y);
+    }
+```
+
+Attempting to declare `fn my_function(x){ ... }` will prevent x from being initialized.
+
+> Requiring type annotations in function definitions means the compiler almost never needs you to use them elsewhere in the code to figure out what you mean.
+
+### Statements and Expressions
+
+Function bodies are made up of a series of statements optionally ending in an expression. So far, we've only covered functions without an ending expression, but we have seen an expression as part of a statement.
+
+Rust is an _expression-based language_, so this is an important distinction to understand.
+
+_*Statements*_ are instructions that perform some action and do not return a value.
+_*Expressions*_ return a value.
+
+```rust
+fn main(){
+    let y = 6;
+}
+```
+
+Variable and function declarations are statements. Statements do not return values. Therefore, you can't assign a `let` statement to another variable - ex: `let x = (let y = 6);`. This would produce an error.
+
+Since the statement `let y = 6` does not return a value, there is nothing for x to bind to. This is different from other languages (C or Ruby for example), where variable assignment returns the value of the assignment.
+
+_Expressions_ evaluate to something and make up most of the code that we will write in Rust. A simple example of an expression would be a basic math operation: `5 + 6`, which evaluates to `11`.
+
+Expressions can be _part_ of a statement. In `let y = 6`, `6` is an expression that evaluates to the value `6`. Calling a function is an expression. Calling a macro is an expression. The block that we use to create new scopes, `{}`, is an expression. For example:
+
+```rust
+fn main(){
+    let x = 5;
+
+    let y = {
+        let x = 3
+        x + 1
+    };
+
+    println!("The value of y is {}", y);
+}
+```
+
+The expression being assigned to our new variable, `y`, evaluates to `4`. Note that the `x + 1` line ends without a semicolon, which is unlike most lines we've seen thus far. Expressions do not include ending semicolons.
+
+> If you add a semicolon to the end of an expression, you turn it into a statement, which will then not return a value.
+
+### Functions with Return Values
+
+Functions can return values to the code that calls them. We don't name return values, but we do declare their type after an arrow (`->`).
+
+In Rust, the return value of a function is the value of the final expression in the body of that function.
+
+You can return early from a function by using the `return` keyword and specifying a value, but most functions return the last expression implicitly. Here's an example:
+
+```rust
+fn five() -> i32 {
+    5
+}
+
+fn main(){
+    let x = five();
+
+    println!("The value of x is: {}", x);
+}
+```
+
+There are no function calls, macros, `let` statements in the `five` function -- just the number 5 by itself. That's a perfectly valid function in Rust.
+
+Note that:
+
+- the function's return type is specified as `-> i32`.
+- the final expression within `five()` ends _without_ a semicolon, indicating that we want to return the value of that expression
+
+Let's look at another example:
+
+```rust
+fn main() {
+    let x = plus_one(5)
+
+    println!("The value of x is: {}", x);
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+Running this code will print `The value of x is: 6`. But if we placed a semicolon at the end of `x + 1`, we would change that line from an _expression_ to a _statement_, which would result in a `mismatched types` error on compile.
+
+The definition of `plus_one()` says that it will return an `i32`, but statements don't evaluate to a value. The compiler will state that it expected an `i32` but found `()`, an empty tuple. Since nothing is being returned, the function definition is contradicted and the result is an error.
+
+### Comments
+
+In Rust, comments must start with `//` and continue to the end of the line. For multi-line comments, you'll need to include `//` on each line.
+
+Comments can have their own lines, or be in-line with other code, but _everything_ AFTER `//` on that line will be considered a comment.
+
+### Control Flow
