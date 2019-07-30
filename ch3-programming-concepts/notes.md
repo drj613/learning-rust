@@ -10,6 +10,23 @@
 
 [3.2 - Data Types](#data-types)
 
+    [Scalar Types](#scalar-types)
+
+        [Integers](#integer-types)
+        [Floats](#floating-point-types)
+        [Basic Math](#numeric-operations)
+        [Booleans](#booleans)
+        [Characters](#the-character-type)
+
+    [Compound Types](#compound-types)
+
+        [Tuples](#the-tuple-type)
+        [Arrays](#arrays)
+
+[3.3 - Functions](#functions)
+
+        
+
 ---
 
 ## Variables and Mutability
@@ -190,3 +207,73 @@ Rust's `char` type is four byte in size and represents a Unicode Scalar Value, w
 _Compound types_ can group multiple values into one type. Rust has two primitive compount types: tuples and arrays.
 
 #### The Tuple Type
+
+A tuple is a general way of grouping together some number of other values with a variety of types into one compound type.
+
+*_Tuples have a fixed length: once declared, they cannot grow or shrink in size_*
+
+Create a tuple in Rust by writing a comma-separated list of values inside parentheses. Each position in the tuple has a type, and they don't have to match. Type annotation is optional.
+
+```rust
+fn main(){
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+```
+
+To get individual values out of a tuple, we can use pattern matching to destructure a tuple value, like so:
+
+```rust
+fn main(){
+    let tup = (500, 6.4, 1);
+
+    let (x, y, z) = tup;
+
+    println!("The value of y is: {}", y);
+}
+```
+
+_Destructuring_ breaks down the tuple into individual variables. Attempting to do so with the wrong number of variables will throw an error at compile-time.
+
+In addition to destructuring through pattern matching, we can access a tuple elementy directly by using a `.` followed by the index of the value we want to access.
+
+```rust
+fn main(){
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+
+    let five_hundred = x.0;
+
+    let six_four = x.1;
+
+    let one = x.2;
+}
+```
+
+#### Arrays
+
+Unlike a tuple, every element of an array must have the same type. Arrays in Rust are different from arrays in some other languages because *_arrays in Rust have a fixed length, like tuples_*.
+
+Arrays are written the same way in Rust as in most other languages: `let a = [1, 2, 3, 4, 5];`
+
+Explicitly annotate variable type for an array like so:
+
+```rust
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+
+Here, `i32` is the type of each element. After the semicolon, `5` indicates that the array will have 5 items. This looks similar to an alternative syntax for creating an array: if you want to create an array that contains the same value for each element, you can specify the inital value, followed by a semicolon, and then the length of the array in square brackets:
+
+```rust
+    let a = [3; 5];
+```
+
+The array named `a` will contain `5` elements that will all be set to the value `3`. This is a more concise way to write `let a [3, 3, 3, 3, 3];`
+
+Access elements of an array as in other languages: `arr[i]`. Index starts at 0.
+
+If you attempt to access an index that is out of bounds of the array, code will compil but will exit with an error when it runs. In many low-level languages, this kind of check is not done.
+
+---
+
+## Functions
+
+
