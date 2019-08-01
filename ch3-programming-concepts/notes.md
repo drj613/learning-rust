@@ -28,7 +28,16 @@
 - [Comments](#comments)
 - [Control Flow](#control-flow)
 
-        
+[3.4 - Control Flow](#control-flow)
+
+- [`if` Expressions](#if-expressions)
+  - [Using `if` with `let`](#using-if-in-a-let-statement)
+- [Loops](#repetition-with-loops)
+  - [`loop` loops](#loop)
+  - [`while` loops](#conditional-loops-with-while)
+  - [`for` loops](#looping-through-a-collection-with-for)
+
+[Exercises](#all-done)
 
 ---
 
@@ -180,10 +189,15 @@ fn main(){
 Rust supports all of the usual mathematical operations you'd expect.
 
 `+`
+`+=`
 `-`
+`-=`
 `*`
 `/`
 `%`
+
+Rust does _not_ support the `++` expression.
+
 
 #### Booleans
 
@@ -397,4 +411,129 @@ In Rust, comments must start with `//` and continue to the end of the line. For 
 
 Comments can have their own lines, or be in-line with other code, but _everything_ AFTER `//` on that line will be considered a comment.
 
-### Control Flow
+---
+
+## Control Flow
+
+_Control Flow_ is a term for deciding when to run code based on conditions. If/else statements, switch statements, and loops are the most common methods of control flow.
+
+### `if` Expressions
+
+```rust
+fn main() {
+    let number = 3;
+
+    if number == 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
+```
+
+Blocks of code associated with the conditions in `if` expressions are sometimes called _arms_, just like the arms in `match` expressions that were discussed in Chapter 2.
+
+Conditions _must_ be a `bool`. Languages like Ruby or JavaScript will try to convert non-Booleans, but Rust will not. 
+
+Evaluators in Rust are similar to other languages: `=`, `<=`, `>=`, `==`, `!=`, `>`, `<`. Triple equal - `===` - does not exist in Rust and will error at compile time. `else` and `else if` expressions are optional of course.
+
+Rust will stop checking `else if` statements as soon as it encounters one that is true. For example, in the following code, only the first `println!()` will print to the console:
+
+```rust
+fn main() {
+    let num = 6;
+
+    if num/2 > 2 {
+        println!("The number is greater than 4");
+    } else if num % 2 == 0 {
+        println!("The number is even");
+    } else {
+        println!("The number is odd, and less than 4");
+    }
+}
+```
+
+> Using too many `else if` expressions can clutter your code, so if you have more than one, you might want to refactor your code. Consider a `match` statement for these cases (more on `match` in Chapter 6)
+
+#### Using `if` in a `let` Statement
+
+`if` is an _expression_. Because of this, we can use it on the right side of a `let` statement, like so:
+
+```rust
+fn main(){
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    println!("The value of number is: {}", number);
+}
+```
+
+Because `number` in the above block has the potential to be any of the values output by the expression, all possible outcomes must be of the same type. The `else` block, for example, could NOT be `"six"`. This would cause a compile-time error.
+
+### Repetition with Loops
+
+Rust has three kinds of loops: `loop`, `while`, and `for`.
+
+#### `loop`
+
+The `loop` keyword tells Rust to execute a block of code over and over forever or until you explicitly tell it to stop. You can place the `break` keyword within the loop to tell the program when to stop executing it.
+
+#### Conditional Loops with `while`
+
+```rust
+fn main(){
+    let mut num = 3;
+
+    while num != 0 {
+        println!("{}!", num);
+
+        num -= 1;
+    }
+
+    println!("LIFTOFF!!");
+}
+```
+
+> This construct eliminates a lot of nesting that would be necessary if you used `loop`, `if`, `else`, and `break`, and it’s clearer. While a condition holds true, the code runs; otherwise, it exits the loop.
+
+#### Looping Through a Collection with `for`
+
+`for` loops in Rust look like this:
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter(){
+        println!("the value is: {}", element);
+    }
+}
+```
+
+`for` loops are the most commonly used loop construct in Rust due to their safety and conciseness.
+
+We can rewrite the countdown loop from the last section with a `for` loop using a Range and the `rev()` method, like so:
+
+```rust
+fn main(){
+    for num in (1..4).rev() {
+        println!("{}!," num);
+    }
+    
+    println!("LIFTOFF!");
+}
+```
+
+---
+
+## ALL DONE
+
+Try the following exercises to reinforce some of the concepts learned in this chapter:
+
+- Convert temperatures between Fahrenheit and Celsius
+- Generate the nth Fibonacci number
+- Print the lyrics to the Christmas carol "The Twelve Days of Christmas"
