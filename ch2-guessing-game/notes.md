@@ -153,6 +153,6 @@ Switching from an `expect` call to a match expression is how you generally move 
 
 If `parse` is able to successfully turn the string into a number, it will return an `Ok` value that contains the resulting number. That `Ok` value will match the first arm's pattern, and the `match` expression will just return the `num` value that `parse` produced and placed inside `Ok`.
 
-If `parse` is _not_ able to turn the string into a number, it will return an `Err` value that contains more information about the error. The `Err` value doesn't match the `Ok(num)` patter in the first match arm, but it does match the `Err(_)` pattern in the second arm. 
+If `parse` is _not_ able to turn the string into a number, it will return an `Err` value that contains more information about the error. The `Err` value doesn't match the `Ok(num)` pattern in the first match arm, but it does match the `Err(_)` pattern in the second arm. 
 
 `_` is a catchall value; in the example above, we're saying we want to match all `Err` values. So the program will execute the second arm's code, `continue`, which tells the program to go to the next iteration of the loop, skipping all errors.

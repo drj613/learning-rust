@@ -1,0 +1,1 @@
+/home/dj/Documents/learning/rust/ch3-programming-concepts/exercises/temp-converter/target/debug/temp-converter: /home/dj/Documents/learning/rust/ch3-programming-concepts/exercises/temp-converter/src/main.rs
